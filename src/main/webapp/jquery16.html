@@ -9,14 +9,46 @@
 </head>
 <body>
 <input type="text" name="" id="txt" class=""/>
+<input type="radio" name="ra" id="ra1" class=""/>
+<input type="radio" name="ra" id="ra2" class=""/>
+<input type="checkbox" name="" id="cb" class=""/>
+<select id="sel">
+	<option value="op1">옵션1</option>
+	<option value="op2">옵션2</option>
+	<option value="op3">옵션3</option>
+</select>
+<select id="subsel"></select>
 <button id="submit" >값체크</button>
+
 
 <!--스크립트 -->
 <script>
 $(document).ready(function(){
+	$("#sel option:eq(1)").prop("selected", true); //문서가 로드되면 선택박스를 2번째로 선택함. eq(1);
+	
+	$("#sel").change(function(){
+		$("#subsel").empty();
+		
+		if($("#sel").val()=='op2'){			
+			$("#subsel").append("<option>서브2select</option>");
+		}else if($("#sel").val()=='op3'){			
+			$("#subsel").append("<option>서브3select</option>");
+		}
+		
+		console.log("바뀜");
+	});
+	
 	$("#submit").click(function(){
-		var txt = $("#txt").val();
-		console.log("value: "+txt);
+		console.log($("#sel option:selected").text()); //.prop() 값 체크여부 확인		
+		//.val() 사용시 option에 밸류값이 없으면 innerhtml의 텍스트 출력
+		
+		//var txt = $("#txt").val(); //document.getElementById("txt").value;
+		/* var txt = document.getElementById("txt");
+		if($(txt).val() == ''){
+			console.log("빈값");
+		}else{
+			console.log("value: "+$(txt).val());
+		} */		
 	});
 });
 </script>

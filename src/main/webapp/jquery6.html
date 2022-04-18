@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--스크립트 -->
+<!-- <script src="jquery-3.6.0.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<button>클릭시 내용이 사라짐</button>
+<p>toggle 사라지거나 나타나거나 상태전환</p>
+<!--스크립트 -->
+<script>
+$(document).ready(function(){
+	$("button").on("click", function(){		
+		//$(this).hide();
+		$("p").toggle();
+	});
+});
+</script>
+</body>
+</html>
